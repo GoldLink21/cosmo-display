@@ -1,0 +1,480 @@
+p {
+    font-size:1.1vw;
+}
+
+.input1 {
+    width: 70%;
+    height: 25px;
+    font-size: 1vw;
+}
+
+.input2 {
+    display: block;
+    width: 40px;
+    height: 20px;
+    text-align: center;
+    font-size: 1vw;
+}
+
+.subpack{
+    margin: auto;
+    padding: auto;
+    height: 20px;
+    width: 45%;
+}
+
+button{
+    height: auto;
+    font-size: 1vw;
+}
+
+.altbutton{
+    width: 80%;
+}
+
+#close1, #close2 {
+    height: 25px;
+    width: 50%;
+    padding-bottom: 5px;
+    font-size: 1vw;
+}
+
+#close2{
+    margin: 5px;
+}
+
+#addedStudent{
+    height:auto;
+    text-align: center;
+    padding: 10px;
+    margin-top: 33%;
+    margin-right: 85%;
+    margin-left: 12px;
+    border:black solid 2px;
+    width: 210px;
+    position: fixed;
+    background-color: #dddddd;
+    z-index: -1;
+}
+
+body{
+    background-image: url("prism.png");
+}
+
+.newStudent{
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+    justify-content: center;
+    float: center;
+    height: auto;
+    width: 13%;
+    padding: 10px;
+    text-align: center;
+    margin: auto;
+    margin-left: 5px;
+    margin-top: 10px;
+    position: fixed;
+    background-color: #bca070;
+    border: 1px solid black;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.newStudentMenue{
+    height: auto;
+    width: 13%;
+    padding: 15px;
+    text-align: center;
+    margin: 5px;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 10px;
+    position: fixed;
+    background-color: #dddddd;
+    border: 1px solid black;
+    box-shadow: 0px 8px 16px 0px rgb(0, 0, 0, 0.2);
+}
+
+#listView{
+    margin: auto;
+    height: 70%;
+    width: 70%;
+    padding-top: 10px;
+}
+
+.stuView{
+    border-collapse: collapse;
+    width: 100%
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+    font-size: 1.1vw;
+}
+
+tr:nth-child(odd){
+    background-color: #eeeeee;
+}
+
+tr:nth-child(even){
+    background-color: #bca070;
+}
+
+.header{
+    border-collapse: collapse;
+    width: inherit;
+    position: fixed;
+}
+
+#preTime{
+    display: none;
+    margin-top: -15px;
+}
+
+#checked{
+    margin-top: -10px;
+}
+
+.radio{
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 20px;
+    width: 20px;
+}
+
+#RemoveStu{
+    height:auto;
+    width: 13%;
+    padding: 10px;
+    text-align: center;
+    margin-left: 84.4%;
+    margin-right: 1%;
+    margin-top: 10px;
+    position: fixed;
+    background-color: #bca070;
+    border: 1px solid black;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+#RemoveMenu{
+    height:auto;
+    width: 13%;
+    padding: 15px;
+    text-align: center;
+    margin: 5px;
+    margin-left: 84.25%;
+    margin-right: 1%;
+    margin-top: 10px;
+    position: fixed;
+    float: right;
+    background-color: #dddddd;
+    border: 1px solid black;
+    box-shadow: 0px 8px 16px 0px rgb(0, 0, 0, 0.2);
+    visibility: hidden;
+}
+
+h1 {
+    font-family: Milonga;
+    text-align: center;
+    border: 3px solid rgb(95, 95, 95);
+    background-color: #fff;
+    width: 55%;
+    padding: auto;
+    margin: auto;
+}
+
+#Tab1{
+    display: block;
+}
+
+.tab1{
+    float: center;
+    height: auto;
+    width: 13%;
+    padding: 10px;
+    text-align: center;
+    margin: auto;
+    margin-left: 5px;
+    margin-top: 50px;
+    position: fixed;
+    background-color: #bca070;
+    border: 1px solid black;
+    box-shadow: 0px 8px 16px 0px rgb(0, 0, 0, 0.2);
+}
+
+.wider{
+    width: 80%;
+}
+
+#Tab2{
+    display: none;
+}
+
+h2 {
+    font-size: 100px;
+    text-align: center;
+    padding: auto;
+    color: white;
+}
+
+.calender{
+    margin: auto;
+    width: 70%;
+    text-align: center;
+    height: 700px;
+}
+
+.submit{
+    margin: 5px;
+    width: 100%;
+}
+
+.submit1{
+    margin: auto;
+    width: 100%;
+}
+
+.extraSpace{
+    width: 100%;
+}
+
+.SubmitHrs{
+    width: 100%;
+    height: 80%;
+    font-size: 1.2vw;
+    background-color: #bca070;
+}
+
+.dropArrow {
+    display: inline;
+    font-size: 1.1vw;
+}
+
+.pack1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-shrink: 2;
+}
+
+.pack2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.stuYear{
+    width:10%;
+    font-size: 1.4vw;
+}
+
+.stuPeriod{
+    width:10%;
+    font-size: 1.4vw;
+}
+
+.stuTime{
+    width:25%;
+    font-size: 1.4vw;
+}
+
+.stuName{
+    width:10%;
+    font-size: 1.4vw;
+    text-align:left;
+}
+
+.all{
+    width:15%;
+}
+
+.Head{
+    width: 55%;
+    font-size: 2vw;
+}
+
+.back{
+    border: 1px black solid;
+    Height: 60px;
+    background-color: #dddddd;
+}
+
+.calday{
+    width: 14%;
+    height: auto;
+    font-size: 1.6vw;
+}
+
+.calendared{
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+}
+
+.sunday{
+    background-color: gray;
+}
+
+.weekday{
+    background-color: #eeeeee;
+}
+
+.Days{
+    font-size: 1.2em;
+    height: 50px;
+}
+
+.NameOnCal{
+    font-size: 1.4em;
+}
+
+.block1{
+    font-size: 1vw;
+    text-align: left;
+}
+
+.resize{
+    width: 80%;
+}
+
+.hidden{
+    display:none;
+}
+
+
+.month{
+    background-color: #bca070;
+    font-size: 2em;
+}
+
+.otherMonth{
+    background-color: darkgrey;
+}
+
+.gacha{
+    float: right;
+    font-size: 1em;
+}
+
+.logIn{
+    display: none;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+.signInMenu{
+    font-size: 2.7vw;
+    font-family: Milonga;
+    font-weight: 600;
+    text-align: center;
+    margin: 5% auto;
+    height: auto;
+    width: 50%;
+    opacity: 0.80;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 2px 3px 11px 8px black;
+}
+
+.signIn{
+    padding-bottom: 20px;
+}
+
+.signinBut{
+    width: 50%;
+}
+
+.transparent{
+    background-image:url("cosmo2.JPG");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-color: gray;
+    opacity: 0.8;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index: -1;
+}
+
+.sideBar{
+    width:13%;
+    margin-left: 84.4%;
+    margin-right:1%;
+    padding-top:50px;
+    position: fixed;
+}
+
+.sideBarButton{
+    font-size:1.2em;
+    padding: 10px;
+    text-align: center;
+    background-color: #bca070;
+    border: 1px solid black;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.stuDisplay{
+    font-size:1.3em;
+    color: #34635a;
+}
+
+.arrows:hover{
+    background-color: #34635a;
+}
+
+.leftArrow1{
+    float: left;
+    border: 2px solid black;
+    font-size: 2vw;
+    width: 100%;
+    height: 100%;
+    background-color: lightgrey;
+}
+
+.leftArrow2{
+    float: left;
+    border: 2px solid black;
+    font-size: 2vw;
+    width: 100%;
+    height: 100%;
+    background-color: lightgrey;
+}
+
+.rightArrow1{
+    float: right;
+    border: 2px solid black;
+    font-size: 2vw;
+    width: 100%;
+    height: 100%;
+    background-color: lightgrey;
+}
+.rightArrow2{
+    float: right;
+    border: 2px solid black;
+    font-size: 2vw;
+    width: 100%;
+    height: 100%;
+    background-color: lightgrey;
+}
+.navButLeft{
+    border-right: none;
+}
+
+.navButRight{
+    border-left: none;
+}
+.headingRow{
+    border-left:none;
+    border-right:none;
+}
+.navButMonth{
+    background-color: #bca070;
+
+}

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Screen resolution of chromebook is 1366x768 ---- Wdith is 1567px ---  #ffedba  ---  setTimeout(()=>{console.log(document.body.getBoundingClientRect())}, 3000) -->
+
+<head>
+    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-auth.js"></script>
+    <script>
+        firebase.initializeApp({
+            apiKey: "AIzaSyBYcBBpflqRcVCipgdGBJmW1TKRq739OvE",
+            authDomain: "cosmo-test-151ed.firebaseapp.com",
+            databaseURL: "https://cosmo-test-151ed.firebaseio.com",
+            projectId: "cosmo-test-151ed",
+            storageBucket: "",
+            messagingSenderId: "120662157931",
+            appId: "1:120662157931:web:e21e35f2dbdfa9a4"
+        });
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src='newStudent.js'></script>
+    <link rel="icon" href="walker_cc.jpg" type="image/jpg" sizes="16x16">
+    <link rel="stylesheet" href="index.css" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Milonga&display=swap" rel="stylesheet">
+
+    <title>WCC Cosmo</title>
+</head>
+
+<body id="body">
+
+    <div class="logIn" id="logIn">
+
+        <div id='transparent' class="transparent"
+            onload="document.getElementsByClassName('transparent').style.width=window.innerWidth;document.getElementsByClassName('transparent').style.height=window.innerHeight;">
+
+        </div>
+        <div class="signInMenu" id='signInMenu'>Walker Career Center Cosmetology
+            <div id='loginError'></div>
+            <div class="signIn"><button class="signinbutton" onclick="SignIn()" id="signinBut2">Sign In With
+                    Google</button></div>
+            <div><img class="p-3" src="walker_cc.jpg" alt="WCC Logo" width=50%></div>
+        </div>
+    </div>
+
+    <div id="Tab1" class="container-fluid">
+
+        <div id="addedStudent"></div>
+
+        <h1 class="Head">Walker Career Center Cosmetology</h1>
+
+        <div class="newStudent"><button class="altbutton" id="studentBtn" onclick="toggleNewStudentWindow()">Add
+                Student</button></div>
+        <div id="newStudent" class='newStudent'>
+            <p>First Name:</p><input type="text" class="input1" id="firstName1">
+            <p>Last Name:</p><input type="text" class="input1" id="lastName1">
+            <div class="pack1">
+                <p class="input2">Period:</p>
+                <div class="subpack" onclick="document.getElementsByName('period')[0].click()"><input class="input2"
+                        type="radio" value=1 id="classPeriod" name='period' checked>(1-4)</div><br>
+                <div class="subpack" onclick="document.getElementsByName('period')[1].click()"><input class="input2"
+                        type="radio" value=2 id="classPeriod" name='period'>(5-7)</div>
+            </div>
+            <div class="pack2">
+                <p>Year:</p>
+                <div class="subpack" onclick="document.getElementsByName('year')[0].click()"><input type=radio
+                        name="year" value=1 class="radio" checked>1 &emsp;</div>
+                <div class="subpack" onclick="document.getElementsByName('year')[1].click()"><input type=radio
+                        name="year" value=2 class='radio'>2</div>
+            </div><br>
+            <p class="extraSpace"><button class="submit1" id="submit1"
+                    onclick="newStuFunc();document.getElementById('firstName1').focus()">Submit</button></p>
+            <br><button id='close1' onclick="toggleNewStudentWindow()">Close</button>
+        </div>
+        <div id="RemoveStu"><button class="altbutton" onclick=toggleRemoveStudentWindow()>Options</button></div>
+        <div id="RemoveMenu">
+            <button class="submit" onclick="removeYear2()">Move All Students Up</button>
+            <button class="submit" onclick="SignOut()">SIGN OUT</button>
+            <button id="close2" onclick='toggleRemoveStudentWindow()'>Close</button>
+        </div>
+        <div id="listView">
+            <table id="stuView" class="stuView">
+                <tr>
+                    <div class="header">
+                        <th>Student</th>
+                        <th>Year <select id='yearFilter' class="drowDown" onchange="filterChangeYear()">
+                                <option value="all">All</option>
+                                <option value="1">1st</option>
+                                <option value="2">2nd</option>
+                            </select></th>
+                        <th>Period <select id='periodFilter' class="dropDown" onchange="filterChangePeriod()">
+                                <option value="all">All</option>
+                                <option value="1">1-4</option>
+                                <option value="2">5-7</option>
+                            </select></th>
+                        <th>Student Time</th>
+                        <th>Adding Time</th>
+                    </div>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <div id="Tab2" class="container-fluid">
+
+        <div class="tab1"><button class="wider" id="tab1" onclick="goBack()">Go Back</button></div>
+        <div class="sideBar">
+            <div class="sideBarButton"><button class="wider" id="addAll" onclick="addAll()">Set All</button></div>
+            <div class="sideBarButton"><button class="wider" id="corrections" onclick="doCorrections()">Correct
+                    Time</button></div>
+            <div class="sideBarButton"><button class="wider" id="extraTime" onclick="extraMenu()">Extra Time</button>
+            </div>
+            <div class="sideBarButton hidden" id="extraMenu">
+                <div class="sideBarText" id="curExtraTime"></div>
+                <button class="wider" id="addExtraTime" onclick="addMenu()">Add Extra Time</button><br>
+                <div id="inputMenu" class="hidden"><label for="inputExtraTime" class='wider sideBarText'>ENTER EXTRA
+                        TIME:</label><br>
+                    <input class='wider' type="number" id="inputExtraTime"><br>
+                    <button class="wider" id="submitExtraTime" onclick="setExtraTime()">Set Time</button><br>
+                </div>
+                <button class="wider" id="clearExtraTime" onclick="removeExtraTime()">Remove Extra Time</button>
+            </div>
+
+
+            <div class="sideBarButton"><button class="wider" id="rmvStu" onclick="remove()">Remove Student</button>
+            </div>
+        </div>
+
+        <div class="calender">
+            <table class="calendared" id="calendered">
+                <tr>
+                    <th class="navButLeft"><button class="arrows leftArrow1"
+                            onclick="calendarStudent=getPrevStudentOnCalendar();loadAllCalendar(calendarDate.getMonth(), calendarDate.getFullYear())">&larr;</button>
+                    </th>
+                    <th class="headingRow" colspan='5'>
+                        <div class="NameOnCal">Student Name</div>
+                    </th>
+                    <th class="navButRight "><button class="arrows rightArrow1"
+                            onclick="calendarStudent=getNextStudentOnCalendar();loadAllCalendar(calendarDate.getMonth(), calendarDate.getFullYear())">&rarr;</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="navButLeft navButMonth"><button class="arrows leftArrow2"
+                            onclick="loadPrevMonth()">&larr;</button></th>
+                    <th class="month headingRow" id="month" colspan="5">May</th>
+                    <th class="navButRight navButMonth"><button class="arrows rightArrow2"
+                            onclick="loadNextMonth()">&rarr;</button></th>
+                </tr>
+
+                <tr>
+                    <td class="calday sunday">Sunday</td>
+                    <td class="calday weekday">Monday</td>
+                    <td class="calday weekday">Tuesday</td>
+                    <td class="calday weekday">Wednesday</td>
+                    <td class="calday weekday">Thursday</td>
+                    <td class="calday weekday">Friday</td>
+                    <td class="calday weekday">Saturday</td>
+                </tr>
+                <tr>
+                    <td class="sunday allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                </tr>
+                <tr>
+                    <td class="sunday allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                </tr>
+                <tr>
+                    <td class="sunday allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                </tr>
+                <tr>
+                    <td class="sunday allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                </tr>
+                <tr>
+                    <td class="sunday allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                </tr>
+                <tr>
+                    <td class="sunday allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                    <td class="Days allDays"></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div id="TabLoad">
+        <h2>Currently loading in students</h2>
+    </div>
+
+    <script>
+        function openLogin() {
+            document.getElementById("Tab1").style.display = 'none';
+            document.getElementById("logIn").style.display = 'block';
+        }
+
+        eleInit();
+
+        function newStuFunc() {
+            var first = document.getElementById('firstName1'),
+                last = document.getElementById('lastName1'),
+                classNum = document.getElementsByName('period'),
+                year = document.getElementsByName('year'),
+                yearVal,
+                classVal,
+                min,
+                hour;
+
+            Array.from(year).forEach(ele => {
+                if (ele.checked)
+                    yearVal = ele.value
+            });
+            Array.from(classNum).forEach(ele => {
+                if (ele.checked)
+                    classVal = ele.value
+            });
+            if (addStudent(first.value, last.value, classVal, yearVal, hour, min)) {
+                first.value = "";
+                last.value = "";
+                classNum.value = 1;
+                year.value = null;
+
+            }
+        }
+
+        function openTab1() {
+
+            document.getElementById("Tab1").style.display = 'block';
+            document.getElementById("Tab2").style.display = 'none';
+            document.getElementById("TabLoad").style.display = 'none'
+        }
+
+        function openTab2() {
+
+            document.getElementById("Tab1").style.display = 'none';
+            document.getElementById("Tab2").style.display = 'block';
+            document.getElementById("TabLoad").style.display = 'none'
+        }
+
+        function openLoadTab() {
+            document.getElementById("TabLoad").style.display = 'block'
+            document.getElementById("Tab1").style.display = "none"
+            document.getElementById("Tab2").style.display = "none"
+        }
+        document.getElementById("TabLoad").style.display = 'none'
+        openLogin()
+    </script>
+
+</body>
+
+</html>
